@@ -7,7 +7,7 @@ const path = require("path");
 const port = 3000;
 
 const server = http.createServer((req, res)=>{
-    const filePath = path.join(__dirname, req.url === '/' ? "index.html" : req.url);
+    const filePath = path.join(__dirname, req.url === '/' ? "index.html" : req.url); //__dirname gives you the absolute path of the file
 
     console.log(filePath);
 
@@ -21,7 +21,7 @@ const server = http.createServer((req, res)=>{
         '.png' : 'text/png'
     }
 
-    const contentType= mimeTypes[extName] || 'application/octet-stream'
+    const contentType= mimeTypes[extName] || 'application/octet-stream' //octet-stream it is a generic file
 
     fs.readFile(filePath, (err,content)=> {
         if(err){
