@@ -3,12 +3,12 @@ const filePath = "./tasks.json";
 
 const loadTasks = () =>{
     try{
-        const dataBuffer = fs.readFileSync(filePath)
-        const dataJSON = dataBuffer.toString();
-        return JSON.parse(dataJSON);
+        const dataBuffer = fs.readFileSync(filePath) // Reads the file as a buffer
+        const dataJSON = dataBuffer.toString(); // Converts buffer to a string
+        return JSON.parse(dataJSON); // Parses JSON string into an object
     }
     catch(error){
-        return []
+        return [] //Returns an empty array if file reading fails
     }
 };
 
